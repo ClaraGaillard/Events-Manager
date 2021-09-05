@@ -5,12 +5,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * The Member entity, which gives the name of musicians/singers.
+ *
+ */
 @Entity
 public class Member {
+
+    /**
+     * The identifier
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    /**
+     * The name of the artist
+     */
     String name;
 
     public String getName() {

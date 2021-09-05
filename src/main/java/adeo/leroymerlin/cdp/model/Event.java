@@ -3,21 +3,45 @@ package adeo.leroymerlin.cdp.model;
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * The Event entity, which represents an artistic event.
+ * It usually lasts few days and bands come to play their music.
+ *
+ */
 @Entity
 public class Event {
+
+    /**
+     * The identifier
+     */
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
+    /**
+     * The title of the event
+     */
     private String title;
 
+    /**
+     * The image to promote the event
+     */
     private String imgUrl;
 
+    /**
+     * The list of bands who are going to come and play music
+     */
     @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
     private Set<Band> bands;
 
+    /**
+     * The number of stars corresponds to a rating scale
+     */
     private Integer nbStars;
 
+    /**
+     * The comments let by people who came to the event
+     */
     private String comment;
 
     public Long getId() {
