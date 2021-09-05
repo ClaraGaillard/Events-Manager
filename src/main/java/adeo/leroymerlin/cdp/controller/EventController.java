@@ -33,7 +33,8 @@ public class EventController {
         eventService.delete(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateEvent(@PathVariable Long id, @RequestBody Event event) {
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public void updateEvent(@RequestBody Event event) {
+        eventService.updateEvent(event);
     }
 }
