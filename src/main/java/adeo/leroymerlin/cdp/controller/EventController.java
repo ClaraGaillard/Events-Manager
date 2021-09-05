@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * The Event Controller, which allows us to make some requests about events from endpoints
+ *
+ */
 @RestController
 @RequestMapping("/api/events")
 public class EventController {
