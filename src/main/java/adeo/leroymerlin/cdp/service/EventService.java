@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -29,9 +30,12 @@ public class EventService {
 
     public List<Event> getFilteredEvents(String query) {
         List<Event> events = eventRepository.findAllBy();
-        // Filter the events list in pure JAVA here
 
-        return events;
+        return events.stream()
+                .filter(event -> event.getBands().stream()
+                        .flatMap(band -> band.getMembers().stream())
+                        .anyMatch(member -> member.getName().toLowerCase().contains(query.toLowerCase())))
+                .collect(Collectors.toList());
     }
 
     public void updateEvent(Event event) {
