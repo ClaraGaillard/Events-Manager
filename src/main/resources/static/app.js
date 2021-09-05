@@ -27,7 +27,7 @@ function EventService($http){
     }
 
     function updateStars(event){
-        return $http.put('/api/events/' + event.id, event);
+        return $http.put('/api/events/update', event);
     }
 }
 

@@ -33,4 +33,8 @@ public class EventService {
 
         return events;
     }
+
+    public void updateEvent(Event event) {
+        eventRepository.save(event);
+    }
 }

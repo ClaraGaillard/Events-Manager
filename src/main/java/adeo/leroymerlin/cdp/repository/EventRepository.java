@@ -10,4 +10,6 @@ public interface EventRepository extends Repository<Event, Long> {
     void delete(Long eventId);
 
     List<Event> findAllBy();
+
+    void save(Event event);
 }
